@@ -16,7 +16,7 @@ fi
 
 sudo systemctl enable redis-sentinel
 
-sudo sed -i -E 's/(bind) ([0-9.]+) (::1)/\1 0.0.0.0 ''/' /etc/redis/redis.conf
+#sudo sed -i -E 's/(bind) ([0-9.]+) (::1)/\1 0.0.0.0 ''/' /etc/redis/redis.conf
 sudo sed -i -E 's/(bind) ([0-9.]+) (::1)/\1 0.0.0.0 ''/' /etc/redis/sentinel.conf
 sudo sed -i -E 's/#? (sentinel monitor) .*/\1 redis-master 10.207.127.170 6379 2/' /etc/redis/sentinel.conf
 sudo sed -i -E 's/#? (sentinel down-after-milliseconds) (<master-name>) (<milliseconds>)/\1 redis-master 1500/' /etc/redis/sentinel.conf
